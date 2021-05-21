@@ -4,7 +4,7 @@ set -euo pipefail
 
 imageRepo="$BUILDKITE_ORGANIZATION_SLUG/$BUILDKITE_PIPELINE_SLUG"
 imageTag="rc"
-releaseTag=$(grep "FROM golang:" | awk -F: '{print $2}')
+releaseTag=$(grep 'FROM golang' Dockerfile | awk -F: '{print $2}')
 
 if [ "$BUILDKITE" == "true" ]; then
     docker pull $imageRepo:$imageTag
