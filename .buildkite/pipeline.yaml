@@ -1,0 +1,18 @@
+steps:
+  - label: ":docker: Build $BUILDKITE_PIPELINE_SLUG image"
+    command: .buildkite/bin/build
+
+  - wait
+
+  - label: ":inspec: InSpec"
+    command: .buildkite/bin/test
+    plugins:
+      - docker#v3.8.0:
+          image: $BUILDKITE_ORGANIZATION_SLUG/$BUILDKITE_PIPELINE_SLUG:rc
+          propagate-environment: true
+
+  - wait
+
+  - label: ":docker: Tag latest"
+    command: .buildkite/bin/release
+    branches: master
