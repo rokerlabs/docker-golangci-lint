@@ -10,15 +10,15 @@ build:
 build-exec:
 	docker run --rm -it -v $(shell pwd):/workdir -w /workdir ${BUILDKITE_ORGANIZATION_SLUG}/${BUILDKITE_PIPELINE_SLUG}:beta /bin/sh -c "${COMMAND}"
 
+install:
+	yarn install --no-progress --frozen-lockfile
+
 purge:
 	for id in $$(docker images ${BUILDKITE_ORGANIZATION_SLUG}/${BUILDKITE_PIPELINE_SLUG} | awk '{if (NR != 1) {print $$3}}'); do \
 		docker image rm $$id; \
 	done;
 
 	docker image prune --force
-
-setup:
-	yarn install --no-progress --frozen-lockfile
 
 # Default to not printing commands Add VERBOSE=on to the command line to see commands
 $(VERBOSE).SILENT:
