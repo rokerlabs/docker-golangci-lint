@@ -1,6 +1,6 @@
 # docker-golangci-lint
 
-[![Build status](https://badge.buildkite.com/ca0ae83d1b8c600fb19b5c64dc6cd325cbcb7c883dd75bf0e1.svg)](https://buildkite.com/rokerlabs/golangci-lint)
+[![Build status](https://badge.buildkite.com/ca0ae83d1b8c600fb19b5c64dc6cd325cbcb7c883dd75bf0e1.svg?branch=master)](https://buildkite.com/rokerlabs/golangci-lint)
 
 Docker image for <a href="https://github.com/golangci/golangci-lint"><code>golangci-lint</code></a>.
 
