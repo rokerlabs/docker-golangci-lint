@@ -7,7 +7,7 @@ steps:
   - label: ":inspec: InSpec"
     command: .buildkite/bin/test
     plugins:
-      - docker#v3.8.0:
+      - docker#v5.10.0:
           image: $BUILDKITE_ORGANIZATION_SLUG/$BUILDKITE_PIPELINE_SLUG:rc
           propagate-environment: true
 
