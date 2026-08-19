@@ -1,4 +1,4 @@
-FROM golang:1.16
+FROM golang:1.27
 
 # Static analysis tools
 RUN go get -u -v golang.org/x/tools/cmd/goimports
